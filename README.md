@@ -1,2 +1,2 @@
 # vim
-my vim config for learn
+Creating a new branch is quick And SIMPLE.
