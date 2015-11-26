@@ -1,2 +1,3 @@
 # vim
-my vim config for learn and simple.
+my vim config for learn and simple!
+
