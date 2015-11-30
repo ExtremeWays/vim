@@ -150,23 +150,58 @@ Plugin 'altercation/vim-colors-solarized'
 
 
 "****提供源代码符号的结构化视图****
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/taglist.vim'
 
-map <F5> :Tlist<cr>
-"不同时显示多个文件的tag，只显示当前文件的
-let Tlist_Show_One_File = 2
-"如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Exit_OnlyWindow = 1 
-"在右侧窗口中显示taglist窗口 
-let Tlist_Use_Right_Window = 1
-"启动vim后，自动打开taglist窗口
-let Tlist_Auto_Open=1
+"map <F5> :Tlist<cr>
+""不同时显示多个文件的tag，只显示当前文件的
+"let Tlist_Show_One_File = 2
+""如果taglist窗口是最后一个窗口，则退出vim
+"let Tlist_Exit_OnlyWindow = 1 
+""在右侧窗口中显示taglist窗口 
+"let Tlist_Use_Right_Window = 1
+""启动vim后，自动打开taglist窗口
+"let Tlist_Auto_Open=1
 "启动获得焦点
 "let Tlist_GainFocus_On_ToggleOpen = 1
+"
 
 
+"****生成函数、变量列表****
+Plugin 'majutsushi/tagbar'
+let g:tagbar_width=35
+let g:tagbar_autofocus=1
+nmap <F6> :TagbarToggle<CR>
+
+Plugin 'ramitos/jsctags'  "使tagbar插件支持js代码
+Plugin 'vim-php/tagbar-phpctags.vim'  "使tagbar插件支持php代码
+Plugin 'jszakmeister/markdown2ctags'  "使tagbar插件支持markdown代码
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '/path/to/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 
 
+Plugin 'universal-ctags/ctags'  "可以生成各类语言的tags
+"设置支持css
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 's:selectors',
+        \ 'i:identities'
+    \ ]
+\ }
 
 
 "****快速给代码注释`ctrl+h`即可注释多种语言代码****
@@ -192,6 +227,16 @@ let g:fencview_autodetect=1
 
 "解放生产力的神器，简单配置，就可以按照自己的风格快速输入大段代码。
 Plugin 'UltiSnips'
+
+
+"****markdown 语法高亮 *****
+Plugin 'plasticboy/vim-markdown'
+
+
+
+
+
+
 
 
 call vundle#end()            " required
